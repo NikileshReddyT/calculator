@@ -31,7 +31,7 @@
         background-color: rgba(255, 0, 0, 0.599);
         color: white;
     }
-    input[type="button"]{
+        input[type="button"]{
         grid-column: span 4;
         background-color: rgba(128, 128, 12
         8, 0.333);
@@ -44,6 +44,8 @@
         padding: 10px 20px;
         margin: 10px;
         cursor: pointer;
+        transition: all 0.3s ease;
+        transition: background-color 0.5s ease, color 0.3s ease, transform 0.5s ease;
 
    
     }
@@ -64,6 +66,10 @@
         border-color: white;
         background-color: white;
         color: black;
+        transform: scale(1.2);
+    }
+    input[type="button"]:active {
+        transform: scale(0.5);
     }
     #operator:hover{
         background-color: rgba(255, 255, 255, 0.744);
