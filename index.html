@@ -15,7 +15,7 @@
         
         margin: 100px auto;
         width: 400px ;
-        height: 450px  ;
+        height: 500px auto ;
         padding: 20px 0%;
         align-items: center;
         border: 4px;
@@ -31,7 +31,7 @@
         background-color: rgba(255, 0, 0, 0.599);
         color: white;
     }
-        input[type="button"]{
+    input[type="button"]{
         grid-column: span 4;
         background-color: rgba(128, 128, 12
         8, 0.333);
@@ -69,6 +69,7 @@
         transform: scale(1.2);
     }
     input[type="button"]:active {
+        transition: all 0.2s ease;
         transform: scale(0.5);
     }
     #operator:hover{
@@ -106,8 +107,8 @@
 </head>
 <body>
     <div id="calculator">
-        <h1 style="padding-top:3%;color:grey;text-decoration:solid">CALCULATOR</h1>
-        <input type="text" id="display" placeholder="" readonly>
+        <h1 style="padding-top:3%;color:grey;text-decoration:solid">Calculator</h1>
+        <input type="text" id="display" placeholder="Enter a number to calculate" readonly>
         <br>
         <input type="button" value="1" onclick="appendValue('1')">
         <input type="button" value="2" onclick="appendValue('2')">
@@ -121,17 +122,13 @@
         <input type="button" value="8" onclick="appendValue('8')">
         <input type="button" value="9" onclick="appendValue('9')">
         <input type="button" value="*" id="operator" onclick="appendValue('*')"><br>
-        <input type="button" value="." onclick="appendValue('.')">
+        <input type="button" value="," onclick="appendValue(',')">
         <input type="button" value="0" onclick="appendValue('0')">
-        <input type="button" value="00"  onclick="appendValue('00')">
+        <input type="button" value="." onclick="appendValue('.')">
         <input type="button" value="/"  id="operator" onclick="appendValue('/')"><br>
-        <div class="lastline">
-            <input type="button" value="A/C" id="bigButtons" onclick="clearDisplay()">
-            <input type="button" value="=" id="equals" onclick="calculate()">
-            <input type="button" value="Back" id="bigButtons" onclick="back()">
-            <input type="button" style="margin-right: 20px;padding:10px 15px" value="%"  id="operator" onclick="appendValue('%')"><br>
-            
-        </div>
+        <input type="button" value="A/C" id="bigButtons" onclick="clearDisplay()">
+        <input type="button" value="=" id="equals" onclick="calculate()">
+        <input type="button" value="Back" id="bigButtons" onclick="back()">
         
 
 
