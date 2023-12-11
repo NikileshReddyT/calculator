@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+    body{
+        background-color: rgb(0, 0, 0);
+        margin: auto;
+        padding: 30px;
+        font-family: 'Roboto', sans-serif;}
+    #calculator{
+        
+        margin: 100px auto;
+        width: 400px ;
+        height: 450px  ;
+        padding: 20px 0%;
+        align-items: center;
+        border: 4px;
+        border-color: white;
+        background-color:rgba(79, 63, 63, 0.333) ;
+        text-align: center;
+        border-radius: 25px;
+        border-style: hidden;
+
+        
+    }
+    #operator{
+        background-color: rgba(255, 0, 0, 0.599);
+        color: white;
+    }
+    input[type="button"]{
+        grid-column: span 4;
+        background-color: rgba(128, 128, 12
+        8, 0.333);
+        border-radius: 25px;
+        border-style: hidden;
+        border-color: rgb(255, 255, 255);
+        color: rgba(187, 173, 173, 0.603);
+        background-color: rgba(0, 0, 0, 0.615);
+        font-size: 20px;
+        padding: 10px 20px;
+        margin: 10px;
+        cursor: pointer;
+
+   
+    }
+    input[type="text"]{
+        
+        color: white;
+        background-color: black;
+        padding: 10px 30px;
+        margin: 20px;
+        font-size: 20px;
+        border-radius: 25px;
+        border-color: rgb(201, 184, 184);
+        border: 30px;
+        
+        
+    }
+    input[type="button"]:hover{
+        border-color: white;
+        background-color: white;
+        color: black;
+    }
+    #operator:hover{
+        background-color: rgba(255, 255, 255, 0.744);
+        color: red;
+    }
+    #bigButtons{
+        background-color: rgba(255, 255, 255, 0.636);
+        color: black;
+        padding: 10px 7px;
+
+
+    }
+    #equals{
+        background-color: rgba(202, 81, 1, 0.759);
+        color: white;
+    }
+    #equals:hover{
+        background-color: white;
+        color: red;
+    }
+    .lastline{
+        float: left;
+        margin-left: 52px;
+    }
+    #bigButtons:hover{
+        background-color: black;
+        color: white;
+    }
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+<body>
+    <div id="calculator">
+        <h1 style="padding-top:3%;color:grey;text-decoration:solid">CALCULATOR</h1>
+        <input type="text" id="display" placeholder="" readonly>
+        <br>
+        <input type="button" value="1" onclick="appendValue('1')">
+        <input type="button" value="2" onclick="appendValue('2')">
+        <input type="button" value="3" onclick="appendValue('3')">
+        <input type="button" value="+" id="operator"  onclick="appendValue('+')"><br>
+        <input type="button" value="4" onclick="appendValue('4')">
+        <input type="button" value="5" onclick="appendValue('5')">
+        <input type="button" value="6" onclick="appendValue('6')">
+        <input type="button" value="-" id="operator" onclick="appendValue('-')"><br>
+        <input type="button" value="7" onclick="appendValue('7')">
+        <input type="button" value="8" onclick="appendValue('8')">
+        <input type="button" value="9" onclick="appendValue('9')">
+        <input type="button" value="*" id="operator" onclick="appendValue('*')"><br>
+        <input type="button" value="." onclick="appendValue('.')">
+        <input type="button" value="0" onclick="appendValue('0')">
+        <input type="button" value="00"  onclick="appendValue('00')">
+        <input type="button" value="/"  id="operator" onclick="appendValue('/')"><br>
+        <div class="lastline">
+            <input type="button" value="A/C" id="bigButtons" onclick="clearDisplay()">
+            <input type="button" value="=" id="equals" onclick="calculate()">
+            <input type="button" value="Back" id="bigButtons" onclick="back()">
+            <input type="button" style="margin-right: 20px;padding:10px 15px" value="%"  id="operator" onclick="appendValue('%')"><br>
+            
+        </div>
+        
+
+
+
+
+    </div>
+    <script>
+        let prevOperator = '';
+
+        function appendValue(value){
+            const display = document.getElementById("display");
+
+            // Check if the current value is an operator
+            if ('+-*/'.includes(value)) {
+                // Check if the last entered operator is the same
+                if (value === prevOperator)  {
+                    alert("Cannot add the same operator twice!");
+                    return;
+                }
+                prevOperator = value;
+            } else {
+                // If the current value is not an operator, reset the prevOperator
+                prevOperator = '';
+            }
+        
+            display.value += value;
+        }
+        function calculate(){
+            let answer = eval(document.getElementById("display").value)
+            document.getElementById("display").value = answer;
+        }
+      
+        
+        function clearDisplay()
+        {
+            document.getElementById('display').value = '';
+        }
+        function back(){
+           let newDisplay = document.getElementById('display').value;
+           document.getElementById('display').value = newDisplay.slice(0,-1);
+        }
+    </script>
+</body>
+</html>
